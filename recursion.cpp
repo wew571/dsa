@@ -98,11 +98,14 @@ stack<int> flip(vector<int> &b , int n, int idx = 0){
 }
 
 long long d = 0;
-void toh(int n , char c1 , char c2 , char c3){
+void tower_of_hanoi(int n , char c1 , char c2 , char c3){
     if(n == 1) {
         d++;
         cout << d << " " << c1 << "->" << c2<< endl;
-        
+    }else{
+        tower_of_hanoi(n-1, c1 , c3 , c2);
+        tower_of_hanoi(1 , c1 , c2 , c3);
+        tower_of_hanoi(n-1 , c3 , c2 , c1);
     }
 }
 
@@ -132,3 +135,4 @@ int main(){
     printList(head);
     return 0;
 }
+
