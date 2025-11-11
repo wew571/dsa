@@ -47,6 +47,20 @@ def BFS_Search(tree , x):
             q.append(Node.right)
     return None
 
+def DFS_Search(tree , x):
+    if tree is None:
+        return None
+    stack = [tree]
+    while stack:
+        current = stack.pop()
+        if current.data == x:
+            return 1
+        if current.left:
+            stack.append(current.left)
+        if current.right:
+            stack.append(current.right)
+    return None
+
 def BFS_Level_Tree(tree):
     if tree is None:
         return 0
