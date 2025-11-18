@@ -18,16 +18,17 @@ def bfs(graph , start, goal):
     queue.append(start)
 
     while queue:
-        concurrent = queue.popleft()
-        if concurrent == goal:
+        current = queue.popleft()
+        if current == goal:
             path = reconstructPath(node_path, start, goal)
             return path
 
-        for neighbor  in graph[concurrent]['neighbors']:
+        for neighbor  in graph[current]['neighbors']:
             if neighbor not in visited:
-                node_path[neighbor] = concurrent
+                node_path[neighbor] = current
                 visited.add(neighbor)
                 queue.append(neighbor)
+                
     return None
 
 def t():
