@@ -1,6 +1,16 @@
 from collections import deque
 import Romania
 
+def reconstructPath(node_path, start, goal):
+    path = []
+    current = goal
+    while current != start:
+        path.append(current)
+        current = node_path[current]
+    path.append(start)
+    path.reverse()
+    return path
+
 def bfs(graph , start, goal):
     node_path = {}
     visited = set()
